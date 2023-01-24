@@ -7,6 +7,27 @@
 // 8 7,8 -7,1 9
 
 
+System.Console.WriteLine("Введите количество строк: ");
+int m = int.Parse(Console.ReadLine()!);
+System.Console.WriteLine("Введите количество строк: ");
+int n = int.Parse(Console.ReadLine()!);
+int[,] Matrix = new int[m,n];
+PrintArray(Matrix);
+
+
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(10);
+            Console.Write($"{matr[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
 
 
 
