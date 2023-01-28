@@ -7,39 +7,39 @@
 // 8 7,8 -7,1 9
 
 
-Console.Write("Введите количество строк массива: ");
-int rows = int.Parse(Console.ReadLine()!);
-Console.Write("Введите количество столбцов массива: ");
-int columns = int.Parse(Console.ReadLine()!);
+// Console.Write("Введите количество строк массива: ");
+// int rows = int.Parse(Console.ReadLine()!);
+// Console.Write("Введите количество столбцов массива: ");
+// int columns = int.Parse(Console.ReadLine()!);
 
-double[,] array = GetArray(rows, columns, 0, 10);
-PrintArray(array);
+// double[,] array = GetArray(rows, columns, 0, 10);
+// PrintArray(array);
 
-double[,] GetArray(int m, int n, int min, int max)
-{
-    double[,] result = new double[m, n];
-    for (int i = 0; i < m; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            result[i, j] = new Random().NextDouble() * (max - min);
-        }
-    }
-    return result;
-}
+// double[,] GetArray(int m, int n, int min, int max)
+// {
+//     double[,] result = new double[m, n];
+//     for (int i = 0; i < m; i++)
+//     {
+//         for (int j = 0; j < n; j++)
+//         {
+//             result[i, j] = new Random().NextDouble() * (max - min);
+//         }
+//     }
+//     return result;
+// }
 
 
-void PrintArray(double[,] inArray)
-{
-    for (int i = 0; i < inArray.GetLength(0); i++)
-    {
-        for (int j = 0; j < inArray.GetLength(1); j++)
-        {
-            Console.Write($"{inArray[i, j]:f1}  ");
-        }
-        Console.WriteLine();
-    }
-}
+// void PrintArray(double[,] inArray)
+// {
+//     for (int i = 0; i < inArray.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < inArray.GetLength(1); j++)
+//         {
+//             Console.Write($"{inArray[i, j]:f1}  ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
 
 
 
@@ -56,8 +56,63 @@ void PrintArray(double[,] inArray)
 // 17 -> такого числа в массиве нет
 
 
+Console.Write("Bведите количество строк массива: ");
+int rows = int.Parse(Console.ReadLine()!);
+Console.Write("Введите количество столбцов массива: ");
+int columns = int.Parse(Console.ReadLine()!);
+int[,] array = GetArray(rows, columns, 0, 10);
 
+PrintArray(array);
 
+Console.Write("Bведите значение элемента: ");
+int element = int.Parse(Console.ReadLine()!);
+
+if (FindElement(array, element))
+{
+    Console.WriteLine("Элемент найден");
+}
+else
+{
+    Console.WriteLine("Элемент не найден");
+}
+
+int[,] GetArray(int m, int n, int min, int max)
+{
+    int[,] result = new int[m, n];
+
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            result[i, j] = new Random().Next(min, max + 1);
+        }
+    }
+    return result;
+}
+
+void PrintArray(int[,] inArray)
+{
+    for (int i = 0; i < inArray.GetLength(0); i++)
+    {
+        for (int j = 0; j < inArray.GetLength(1); j++)
+            {
+                Console.Write($"{inArray[i, j]} ");
+            }
+            Console.WriteLine();
+    }
+    
+}
+bool FindElement(int[,] array, int el)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (array[i, j] == el) return true;
+        }
+    }
+    return false;
+}
 
 
 // Задача 52. Задайте двумерный массив из целых чисел.
