@@ -7,23 +7,35 @@
 // 8 7,8 -7,1 9
 
 
-System.Console.WriteLine("Введите количество строк: ");
-int m = int.Parse(Console.ReadLine()!);
-System.Console.WriteLine("Введите количество строк: ");
-int n = int.Parse(Console.ReadLine()!);
-int[,] Matrix = new int[m,n];
-PrintArray(Matrix);
+Console.Write("Введите количество строк массива: ");
+int rows = int.Parse(Console.ReadLine()!);
+Console.Write("Введите количество столбцов массива: ");
+int columns = int.Parse(Console.ReadLine()!);
 
+double[,] array = GetArray(rows, columns, 0, 10);
+PrintArray(array);
 
-void PrintArray(int[,] matr)
+double[,] GetArray(int m, int n, int min, int max)
 {
-    for (int i = 0; i < matr.GetLength(0); i++)
+    double[,] result = new double[m, n];
+    for (int i = 0; i < m; i++)
     {
-
-        for (int j = 0; j < matr.GetLength(1); j++)
+        for (int j = 0; j < n; j++)
         {
-            matr[i, j] = new Random().Next(10);
-            Console.Write($"{matr[i, j]} ");
+            result[i, j] = new Random().NextDouble() * (max - min);
+        }
+    }
+    return result;
+}
+
+
+void PrintArray(double[,] inArray)
+{
+    for (int i = 0; i < inArray.GetLength(0); i++)
+    {
+        for (int j = 0; j < inArray.GetLength(1); j++)
+        {
+            Console.Write($"{inArray[i, j]:f1}  ");
         }
         Console.WriteLine();
     }
