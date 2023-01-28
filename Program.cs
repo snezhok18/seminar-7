@@ -56,63 +56,63 @@
 // 17 -> такого числа в массиве нет
 
 
-Console.Write("Bведите количество строк массива: ");
-int rows = int.Parse(Console.ReadLine()!);
-Console.Write("Введите количество столбцов массива: ");
-int columns = int.Parse(Console.ReadLine()!);
-int[,] array = GetArray(rows, columns, 0, 10);
+// Console.Write("Bведите количество строк массива: ");
+// int rows = int.Parse(Console.ReadLine()!);
+// Console.Write("Введите количество столбцов массива: ");
+// int columns = int.Parse(Console.ReadLine()!);
+// int[,] array = GetArray(rows, columns, 0, 10);
 
-PrintArray(array);
+// PrintArray(array);
 
-Console.Write("Bведите значение элемента: ");
-int element = int.Parse(Console.ReadLine()!);
+// Console.Write("Bведите значение элемента: ");
+// int element = int.Parse(Console.ReadLine()!);
 
-if (FindElement(array, element))
-{
-    Console.WriteLine("Элемент найден");
-}
-else
-{
-    Console.WriteLine("Элемент не найден");
-}
+// if (FindElement(array, element))
+// {
+//     Console.WriteLine("Элемент найден");
+// }
+// else
+// {
+//     Console.WriteLine("Элемент не найден");
+// }
 
-int[,] GetArray(int m, int n, int min, int max)
-{
-    int[,] result = new int[m, n];
+// int[,] GetArray(int m, int n, int min, int max)
+// {
+//     int[,] result = new int[m, n];
 
-    for (int i = 0; i < m; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            result[i, j] = new Random().Next(min, max + 1);
-        }
-    }
-    return result;
-}
+//     for (int i = 0; i < m; i++)
+//     {
+//         for (int j = 0; j < n; j++)
+//         {
+//             result[i, j] = new Random().Next(min, max + 1);
+//         }
+//     }
+//     return result;
+// }
 
-void PrintArray(int[,] inArray)
-{
-    for (int i = 0; i < inArray.GetLength(0); i++)
-    {
-        for (int j = 0; j < inArray.GetLength(1); j++)
-            {
-                Console.Write($"{inArray[i, j]} ");
-            }
-            Console.WriteLine();
-    }
+// void PrintArray(int[,] inArray)
+// {
+//     for (int i = 0; i < inArray.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < inArray.GetLength(1); j++)
+//             {
+//                 Console.Write($"{inArray[i, j]} ");
+//             }
+//             Console.WriteLine();
+//     }
     
-}
-bool FindElement(int[,] array, int el)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            if (array[i, j] == el) return true;
-        }
-    }
-    return false;
-}
+// }
+// bool FindElement(int[,] array, int el)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             if (array[i, j] == el) return true;
+//         }
+//     }
+//     return false;
+// }
 
 
 // Задача 52. Задайте двумерный массив из целых чисел.
@@ -126,4 +126,43 @@ bool FindElement(int[,] array, int el)
 // Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 
 
+// Console.Write("Bведите количество строк массива: ");
+// int rows = int.Parse(Console.ReadLine()!);
+// Console.Write("Введите количество столбцов массива: ");
+// int columns = int.Parse(Console.ReadLine()!);
 
+int rows = new Random().Next(5, 7);
+int columns = new Random().Next(5, 9);
+Console.WriteLine();
+Console.WriteLine($"Строк в массиве = {rows}");
+Console.WriteLine($"Столбцов в массиве = {columns}");
+Console.WriteLine();
+
+int[,] array = TwoArray(rows, columns);
+PrintArray(array);
+Console.WriteLine();
+
+int[,] TwoArray(int m, int n)
+{
+    int[,] myArray = new int[m, n];
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            myArray[i, j] = new Random().Next(15);
+        }
+    }
+    return myArray;
+}
+
+void PrintArray(int[,] inArray)
+{
+    for (int i = 0; i < inArray.GetLength(0); i++)
+    {
+        for (int j = 0; j < inArray.GetLength(1); j++)
+            {
+                Console.Write($"{inArray[i, j]} ");
+            }
+            Console.WriteLine();
+    }
+}
