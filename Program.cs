@@ -131,38 +131,56 @@
 // Console.Write("Введите количество столбцов массива: ");
 // int columns = int.Parse(Console.ReadLine()!);
 
-int rows = new Random().Next(5, 7);
-int columns = new Random().Next(5, 9);
-Console.WriteLine();
-Console.WriteLine($"Строк в массиве = {rows}");
-Console.WriteLine($"Столбцов в массиве = {columns}");
-Console.WriteLine();
+// int rows = new Random().Next(5, 7);
+// int columns = new Random().Next(5, 9);
+// Console.WriteLine();
+// Console.WriteLine($"Строк в массиве = {rows}");
+// Console.WriteLine($"Столбцов в массиве = {columns}");
+// Console.WriteLine();
 
-int[,] array = TwoArray(rows, columns);
-PrintArray(array);
-Console.WriteLine();
+// int[,] array = TwoArray(rows, columns);
+// PrintArray(array);
+// Console.WriteLine();
+// Console.WriteLine($"Среднее арифметическое столбцов массива:");
+// for (int i = 0; i < columns; i++)
+// {
+//     Console.Write($"[{Math.Round(mySumm(array, rows, columns)[i] / columns, 2)}]");
+// }
 
-int[,] TwoArray(int m, int n)
-{
-    int[,] myArray = new int[m, n];
-    for (int i = 0; i < m; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            myArray[i, j] = new Random().Next(15);
-        }
-    }
-    return myArray;
-}
+// int[,] TwoArray(int m, int n)
+// {
+//     int[,] myArray = new int[m, n];
+//     for (int i = 0; i < m; i++)
+//     {
+//         for (int j = 0; j < n; j++)
+//         {
+//             myArray[i, j] = new Random().Next(15);
+//         }
+//     }
+//     return myArray;
+// }
 
-void PrintArray(int[,] inArray)
-{
-    for (int i = 0; i < inArray.GetLength(0); i++)
-    {
-        for (int j = 0; j < inArray.GetLength(1); j++)
-            {
-                Console.Write($"{inArray[i, j]} ");
-            }
-            Console.WriteLine();
-    }
-}
+// void PrintArray(int[,] inArray)
+// {
+//     for (int i = 0; i < inArray.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < inArray.GetLength(1); j++)
+//             {
+//                 Console.Write($"{inArray[i, j]} ");
+//             }
+//             Console.WriteLine();
+//     }
+// }
+
+// double[] mySumm(int[,] summArray, int m, int n)
+// {
+//     double[] summ = new double[n];
+//     for (int i = 0; i < m; i++)
+//     {
+//         for (int j = 0; j < n; j++)
+//         {
+//             summ[i] += summArray[j, i];
+//         }
+//     }
+//     return summ;
+// }
